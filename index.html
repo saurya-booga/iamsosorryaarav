@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>ILY AARAV</title>
+        <style>
+        
+    body, html {
+    margin: 0;
+    height: 100%; 
+    }
+
+    
+    .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    min-height: 100vh;      
+    background-image: url('backgroundimg.png'); 
+    }
+
+    .tile {
+    max-width: 600px;
+    height: 360px;
+    text-align: center;
+    opacity: 0;
+    background-color: #b84684;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .tile img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-bottom: 15px;
+    }
+
+    .tile h2 {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+
+    .tile.show {
+        opacity: 1;
+        transform: translateY(0);
+    }   
+    .apologyButton {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #c257a2;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+</style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="tile">
+                <img src="us.png" alt ="Placeholder"/>
+                <h2> You see this cute ass man I am holding? <br>
+                    Well, thats my pyara sa boyfriend and I love him so much!!
+                </h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class ="tile">
+                <img src="kissing.jpeg" alt="Placeholder"/>
+                <a href="apology_page.html" class="apologyButton">But I did something to make the love of my life sad...</a>
+            </div>
+        </div>
+    </body>
+<script>
+    const items = document.querySelectorAll('.tile');
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } 
+    });
+}, {threshold: 0.15});
+items.forEach((item) => {
+    observer.observe(item);
+});
+</script>
+</html>
